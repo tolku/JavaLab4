@@ -1,12 +1,30 @@
 package com.company;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class Point {
+    static private int count = 1;
+    private int number;
     private double x, y;
     Point(double x, double y){
         this.x = x;
         this.y = y;
+        number = count++;
+    }
+
+    public void changePointCoordinates(){
+        System.out.print("changing Point" + this.number + " coordinates..... \t");
+        this.x = new Random().nextDouble();
+        this.y = new Random().nextDouble();
+    }
+
+    public void printPointCoordinates(){
+        System.out.println("Coordinates of " + toString() + "(" + this.x + ", " + this.y + ")");
+    }
+
+    public String toString(){
+        return "Point" + this.number;
     }
 
     public double getXCoordinate(){
